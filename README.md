@@ -82,6 +82,16 @@ Win: `ctrl + shift + p`
   "default": false,
   "description": "是否开启罚抄模式"
 },
+"words-learner.readOnlyMode": {
+  "type": "boolean",
+  "default": true,
+  "description": "是否只读模式"
+},
+"words-learner.readOnlyInterval": {
+  "type": "number",
+  "default": 5000,
+  "description": "单词切换间隔时间"
+},
 "words-learner.voiceType": {
   "type": "string",
   "enum": [
