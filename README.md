@@ -6,16 +6,6 @@
  Words Learner VSCode
 </h1>
 
-<div align=center>
-<img  src="https://imgur.com/YozF2Tw.png"/>
-</div>
-
-## 💡 演示
-
-<div align=center>
-<img  src="https://imgur.com/CBxwOnz.png"/>
-</div>
-
 ## 📸 安装
 
 本项目为 [Words Learner](https://github.com/lslab/words-learner) 的 VSCode 插件版本，访问原始项目获得更好的体验。
