@@ -148,22 +148,22 @@ export function activate(context: vscode.ExtensionContext) {
       inputBar.show()
       transBar.show()
       setupWord()
-	  if(readOnlyMode){
-		readOnlyIntervalId = setInterval(() => {
-			order++
-			setupWord()
-		}, readOnlyInterval);
-	  }
+      if(readOnlyMode){
+        readOnlyIntervalId = setInterval(() => {
+            order++
+            setupWord()
+        }, readOnlyInterval);
+      }
     } else {
       wordBar.hide()
       inputBar.hide()
       transBar.hide()
-	  if(readOnlyMode){
-		if(readOnlyIntervalId !== null ){
-	  		clearInterval(readOnlyIntervalId)
-			readOnlyIntervalId=null
-		}
-	  }
+      if(readOnlyMode){
+        if(readOnlyIntervalId !== null ){
+            clearInterval(readOnlyIntervalId)
+            readOnlyIntervalId=null
+        }
+      }
     }
   })
 
