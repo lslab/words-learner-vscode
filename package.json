@@ -1,0 +1,155 @@
+{
+  "name": "words-learner",
+  "displayName": "Words Learner",
+  "description": "为 Coder 设计的单词记忆与英语肌肉记忆锻炼软件 摸🐟版",
+  "version": "0.0.1",
+  "publisher": "lslab",
+  "icon": "docs/logo.png",
+  "engines": {
+    "vscode": "^1.53.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "英语",
+    "单词",
+    "记忆",
+    "打字",
+    "摸鱼"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "bugs": {
+    "url": "https://github.com/lslab/words-learner-vscode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lslab/words-learner-vscode/"
+  },
+  "homepage": "https://github.com/lslab/words-learner-vscode",
+  "activationEvents": [
+    "onCommand:words-learner.Start",
+    "onCommand:words-learner.changeChapter",
+    "onCommand:words-learner.changeDict"
+  ],
+  "main": "./dist/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "words-learner.Start",
+        "title": "Words Learner Start/Pause"
+      },
+      {
+        "command": "words-learner.changeChapter",
+        "title": "Words Learner Change Chapter"
+      },
+      {
+        "command": "words-learner.changeDict",
+        "title": "Words Learner Change Dictionary"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "words-learner.Start",
+        "key": "shift+alt+q",
+        "mac": "ctrl+shift+q",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Words Learner",
+      "properties": {
+        "words-learner.highlightWrongColor": {
+          "type": "string",
+          "default": "#EE3D11",
+          "description": "输入错误时单词的颜色"
+        },
+        "words-learner.highlightWrongDelay": {
+          "type": "number",
+          "default": 400,
+          "description": "输入错误时清空输入的延迟时间"
+        },
+        "words-learner.keySound": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否开启键盘音"
+        },
+        "words-learner.phonetic": {
+          "type": "string",
+          "enum": [
+            "us",
+            "uk",
+            "close"
+          ],
+          "default": "close",
+          "description": "是否开启音标"
+        },
+        "words-learner.chapterLength": {
+          "type": "integer",
+          "default": 20,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "每个章节包含的单词数量"
+        },
+        "words-learner.reWrite": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否开启罚抄模式"
+        },
+        "words-learner.readOnlyMode": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否只读模式"
+        },
+        "words-learner.readOnlyInterval": {
+          "type": "number",
+          "default": 5000,
+          "description": "单词切换间隔时间"
+        },
+        "words-learner.voiceType": {
+          "type": "string",
+          "enum": [
+            "us",
+            "uk",
+            "close"
+          ],
+          "default": "us",
+          "description": "是否开启发音"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "vscode:prepublish": "webpack --mode production",
+    "compile": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "test-compile": "tsc -p ./",
+    "vsce:publish": "vsce package"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/lodash": "^4.14.168",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.53.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "glob": "^7.1.6",
+    "mocha": "^9.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "node-loader": "^2.0.0",
+    "node-wav-player": "^0.2.0",
+    "ts-loader": "^8.0.17",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  }
+}
